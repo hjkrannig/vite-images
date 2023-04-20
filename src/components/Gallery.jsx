@@ -7,12 +7,15 @@ const searchURL = import.meta.env.VITE_SEARCH_API
 const apiKey = import.meta.env.VITE_API_KEY
 
 const Gallery = () => {
-  const { searchValue } = useAppContext()
-  const url = `${searchURL}?client_id=${apiKey}&query=${searchValue}`
+  const { searchValue, page, setPage } = useAppContext()
+
+  const maxPage = page === -1
+
+  const url = `${searchURL}?client_id=${apiKey}&query=${searchValue}&page=${page}`
   // change of query-key in second value triggers a new query
   // see also useQueryClient in react-query-tutorial
   const response = useQuery({
-    queryKey: ['images', searchValue],
+    queryKey: ['images', searchValue, page],
     queryFn: async () => {
       const data = await axios.get(url)
       return data.data
@@ -33,6 +36,9 @@ const Gallery = () => {
         <h4>There was an error...</h4>
       </section>
     )
+  }
+  if (maxPage || page > response.data.total_pages) {
+    setPage(response.data.total_pages)
   }
 
   const results = response.data.results

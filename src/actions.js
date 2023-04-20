@@ -1,3 +1,5 @@
 export const ACTION = 'action'
 export const TOGGLE_THEME = 'toggleTheme'
 export const SEARCH_VALUE = 'searchValue'
+export const PAGE = 'page'
+export const MAX_PAGE = 'maxPage'

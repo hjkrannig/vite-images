@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useEffect } from 'react'
 import { reducer } from './reducer'
-import { SEARCH_VALUE, TOGGLE_THEME } from './actions'
+import { SEARCH_VALUE, TOGGLE_THEME, PAGE, MAX_PAGE } from './actions'
 
 const userThemePreferenceDark = localStorage.getItem('darkTheme') === 'true'
 
@@ -17,6 +17,7 @@ const initialState = {
   greeting: 'Hello everybody',
   isDarkTheme: userThemePreferenceDark,
   searchValue: 'cat',
+  page: 1,
 }
 
 const AppContextProvider = ({ children }) => {
@@ -38,8 +39,14 @@ const AppContextProvider = ({ children }) => {
   const setSearchValue = (search) => {
     dispatch({ type: SEARCH_VALUE, payload: { searchValue: search } })
   }
+  const setPage = (page) => {
+    dispatch({ type: PAGE, payload: { page } })
+  }
+
   return (
-    <AppContext.Provider value={{ ...state, toggleDarkTheme, setSearchValue }}>
+    <AppContext.Provider
+      value={{ ...state, toggleDarkTheme, setSearchValue, setPage }}
+    >
       {children}
     </AppContext.Provider>
   )

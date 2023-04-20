@@ -60,7 +60,7 @@ html {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --backgroundColor: var(--grey-50);
+  --backgroundColor: var(--grey-200);
   --textColor: var(--grey-900);
 
   /* dark mode setup */
@@ -277,7 +277,6 @@ ul {
 
 .title {
   text-align: center;
-  #
 }
 
 .title-underline {
@@ -306,9 +305,8 @@ Toggle Container
   padding: 1rem 0;
   margin: 0 auto;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
-
 .dark-toggle {
   background: transparent;
   border-color: transparent;
@@ -318,6 +316,7 @@ Toggle Container
   place-items: center;
   cursor: pointer;
 }
+
 .toggle-icon {
   font-size: 1.5rem;
   color: var(--textColor);
@@ -328,32 +327,49 @@ Search Form
 ========
 */
 .title {
-  color: var(--primary-400);
+  color: var(--grey-400);
 }
 .search-form {
   width: var(--view-width);
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr auto;
 }
-
 .search-input {
   border-color: var(--grey-300);
   transition: var(--darkModeTransition);
   color: var(--textColor);
   border-radius: 0;
-
-  /* border-right: none; */
 }
-
-.search-form .btn {
-  border-radius: 0;
+.search-form button {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
-.search-form .btn:hover {
+.search-form button:hover {
   background: var(--primary-300);
   color: var(--black);
+}
+.page-container {
+  width: var(--view-width);
+  max-width: var(--fixed-width);
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+}
+.page-container button {
+  margin: 0rem 0.25rem;
+}
+.page-container button:hover,
+.page-container button:disabled {
+  background: var(--primary-300);
+  color: var(--black);
+}
+.page-container button:nth-child(3) {
+  width: 5rem;
+  color: var(--textColor);
+  border-color: transparent;
+  border-radius: var(--borderRadius);
 }
 
 /* 
@@ -361,28 +377,24 @@ Search Form
 Gallery
 ========
 */
-
 .image-container {
   width: var(--view-width);
-  max-width: var(--max-width);
+  max-width: 90%;
   margin: 3rem auto;
   display: grid;
   gap: 2rem;
 }
-
 .image-container .img {
-  height: 30rem;
-  width: 20;
-  object-fit: contain;
+  height: 40rem;
+  object-fit: cover;
 }
-
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .image-container {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 992px) {
+/* @media (min-width: 1200px) {
   .image-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
-}
+} */

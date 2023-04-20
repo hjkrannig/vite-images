@@ -1,0 +1,6 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = /home/hjkrannig/Development/js/2-react18-course-jsmilga/tutorials/projects/unsplash-images/starter/.

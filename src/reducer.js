@@ -1,4 +1,4 @@
-import { TOGGLE_THEME, SEARCH_VALUE } from './actions'
+import { TOGGLE_THEME, SEARCH_VALUE, PAGE } from './actions'
 
 export const reducer = (state, action) => {
   if (action.type === TOGGLE_THEME) {
@@ -11,6 +11,10 @@ export const reducer = (state, action) => {
   if (action.type === SEARCH_VALUE) {
     const search = action.payload.searchValue
     return { ...state, searchValue: search }
+  }
+  if (action.type === PAGE) {
+    const page = action.payload.page
+    return { ...state, page }
   }
   return { ...state }
 }

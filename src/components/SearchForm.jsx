@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useAppContext } from '../AppContext'
+import Pager from './Pager'
 
 const SearchForm = () => {
-  const { searchValue, setSearchValue } = useAppContext()
+  const { searchValue, setSearchValue, page, setPage } = useAppContext()
+  console.log('page: ', page)
   const handleSubmit = (evt) => {
     evt.preventDefault()
     const newSearchValue = evt.target.elements.search.value
@@ -10,11 +12,12 @@ const SearchForm = () => {
       return
     }
     setSearchValue(newSearchValue)
-    // console.log(searchValue, newSearchValue)
   }
+
   return (
     <section>
       <h1 className="title">unsplash images</h1>
+      <Pager />
       <form className="search-form" onSubmit={handleSubmit}>
         <input
           type="text"
