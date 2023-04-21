@@ -385,7 +385,7 @@ Gallery
   gap: 2rem;
 }
 .image-container .img {
-  height: 40rem;
+  height: auto;
   object-fit: cover;
 }
 @media (min-width: 900px) {
